@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[datesep={}]{datetime2}
+
+\title{Uninvola's Manual v.20240527}
+\author{Marco Pezzella}
+
+\usepackage{hyperref}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  %commentstyle=\color{red},
+  %keywordstyle=\color{blue}
+}
+
+\newcommand{\uninuvola}{UniNuvola}
+\newcommand{\jupyterhub}{Jupyterhub}
+
+\begin{document}
+\maketitle
+\part{Introduction}
+\newpage
+%\chapter{Introduction}
+\part{General instructions}
+%\chapter{General usage}
+\input{general_usage}
+\newpage
+
+\part{Available images }\label{images}
+%\chapter{Computational Chemistry}
+\input{chemistry}
+\input{machinelearning}%\chapter{Quantum Computing}
+\input{quantum}
+\newpage
+
+\part{Appendices}
+%\chapter{Image Creation}
+\input{create_image}
+\input{QCexample}
+
+\part{Bibliography}
+% Choose a bibliography style
+\bibliographystyle{plain}
+% Specify the .bib file
+\bibliography{uninuvola}
+\bibliographystyle{plain} 
+\end{document}
+

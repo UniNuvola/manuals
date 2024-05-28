@@ -1,0 +1,26 @@
+%\usepackage{listings}
+%\lstset{basicstyle=\ttfamily,
+%  showstringspaces=false,
+%  %commentstyle=\color{red},
+%  %keywordstyle=\color{blue}
+%}
+
+
+\section{Computational Chemistry}
+
+The following software are included in the Computational Chemistry image:  Ambertools, NAMD3\cite{20PhHaMa}, and two different flavours of DL\_POLY\cite{DLPOLY}: the vanilla version from the CCP5 repository\cite{CCP5}, and DL\_POLY\_ILJ from the University of Perugia. VMD\cite{VMD} is installed as analysis and visualisation tool. \\
+
+\subsection{AmberTools}
+AmberTools is installed in a conda environment called \textit{Ambertools}, and it can be used on notebooks or terminals. 
+
+\subsection{DL\_POLY}
+DL\_POLY 4 executable is compiled during the image creation process, using the \textit{gfortran} compiler.
+The vanilla version is downloaded and compiled from the CCP5\cite{CCP5} Gitlab repository, using the MPI flag and downloading all available tests. The executable, \textit{DLPOLY.Z}, is in the \textit{/usr/bin} directory. \\
+
+A local version of the  DL\_POLY\_ILJ source code (Jan. 2024) is compiled with MPI and \textit{gfortran}. The executable, \textit{DLPOLY\_ILJ.Z}, is in the directory \textit{/usr/bin}. \\
+
+\subsection{NAMD3}
+The executable file \textit{namd3} is downloaded from the Urbana University website\cite{NAMD} and is stored in the \textit{/usr/bin} directory.
+
+\subsection{VMD}
+The precompiled 1.9.4a55 version of  VMD is installed locally in the image.\cite{VMD,96HuDaSc,98Stxxxx} In order to use the graphical interface, you will need to use the \textit{Xpra Desktop} notebook.

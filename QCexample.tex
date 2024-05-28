@@ -1,0 +1,47 @@
+\section{Quantum computer's calculation example}
+The following lines of codes need to be added in your Python script in order to connect to the Triangulum Quantum Computer:
+
+\begin{lstlisting}[language=bash]
+username="Ulysses"
+password="Odissey"
+config.configure_ip("spinq.fisgeo.unipg.it")
+config.configure_port(55444)
+config.configure_account(username, password)
+...
+\end{lstlisting}
+
+\noindent  The web address  \textit{spinq.fisgeo.unipg.it} points to the workstation's IP address connected to the Triangulum through the port 55444. \\
+
+\noindent You need to ask your system administrator to create an \textit{username} and \textit{password} in the quantum computer.  
+Due to some translation error in the interface, it is advisable to use the same entries for \textit{Account} and \textit{Name} while creating your local account. The variable  \textit{username} corresponds to the entry \textit{Account}.
+
+\subsection{Example: GHZ state}
+\begin{lstlisting}[language=bash]
+from spinqit import get_nmr, get_compiler, Circuit, NMRConfig
+from spinqit import H, CX
+
+username="Ulysses"
+password="Odissey"
+
+engine = get_nmr()
+comp = get_compiler("native")
+
+circ = Circuit()
+
+q = circ.allocateQubits(3)
+circ << (H, q[0])
+circ << (CX, (q[0], q[1]))
+circ << (CX, (q[1], q[2]))
+
+exe = comp.compile(circ, 0)
+config = NMRConfig()
+config.configure_shots(1)
+config.configure_ip("spinq.fisgeo.unipg.it")
+config.configure_port(55444)
+config.configure_account(username, password)
+config.configure_task("task1", "GHZ")
+
+
+result = engine.execute(exe, config)
+print(result.probabilities)
+\end{lstlisting}
